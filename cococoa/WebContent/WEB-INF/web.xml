@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>cococoa</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+      <!-- (1)フィルタプログラムを指定しています。 -->
+    <filter>
+        <filter-name>EncodeingFilter</filter-name>
+        <filter-class>jp.co.cococoa.filter.EncodeingFilter</filter-class>
+    </filter>
+    <!-- (2)フィルタ処理を適用する条件を指定します。
+            /*と指定しており、すべてのアクセスにフィルタ処理が適用されます。-->
+    <filter-mapping>
+        <filter-name>EncodeingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>jp.co.cococoa.action.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Owner</display-name>
+    <servlet-name>Owner</servlet-name>
+    <servlet-class>jp.co.cococoa.action.OwnerAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Booth</display-name>
+    <servlet-name>Booth</servlet-name>
+    <servlet-class>jp.co.cococoa.action.BoothAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Main</display-name>
+    <servlet-name>Main</servlet-name>
+    <servlet-class>jp.co.cococoa.action.MainAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Reserve</display-name>
+    <servlet-name>Reserve</servlet-name>
+    <servlet-class>jp.co.cococoa.action.ReserveAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>PostMessage</display-name>
+    <servlet-name>PostMessage</servlet-name>
+    <servlet-class>jp.co.cococoa.action.PostMessageAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Message</display-name>
+    <servlet-name>Message</servlet-name>
+    <servlet-class>jp.co.cococoa.action.MessageAction</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Owner</servlet-name>
+    <url-pattern>/Owner</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Booth</servlet-name>
+    <url-pattern>/Booth</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Main</servlet-name>
+    <url-pattern>/Main</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Reserve</servlet-name>
+    <url-pattern>/Reserve</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PostMessage</servlet-name>
+    <url-pattern>/PostMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Message</servlet-name>
+    <url-pattern>/Message</url-pattern>
+  </servlet-mapping>
+
+
+
+  <resource-ref>
+    <res-ref-name>jdbc/postgresql</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+
+
+</web-app>
