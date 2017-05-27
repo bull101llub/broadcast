@@ -101,7 +101,7 @@ table.table-header-fixed thead th {
             <div id="menu"  valign="top"  align="right">
                 <ul>
                     <li><a href="javascript:move('Main')">TOP</a></li>
-                    <li><a href="./reserve.html">RESERVE</a></li>
+                    <!-- <li><a href="./reserve.html">RESERVE</a></li>  -->
                     <li><a href="./room.html">ROM</a></li>
                     <li><a href="./owner.html">OWNER</a></li>
                 </ul>

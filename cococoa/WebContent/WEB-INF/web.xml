@@ -64,6 +64,12 @@
     <servlet-name>Message</servlet-name>
     <servlet-class>jp.co.cococoa.action.MessageAction</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Content</display-name>
+    <servlet-name>Content</servlet-name>
+    <servlet-class>jp.co.cococoa.action.ContentsAction</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -93,6 +99,10 @@
   <servlet-mapping>
     <servlet-name>Message</servlet-name>
     <url-pattern>/Message</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Content</servlet-name>
+    <url-pattern>/Content</url-pattern>
   </servlet-mapping>
 
 

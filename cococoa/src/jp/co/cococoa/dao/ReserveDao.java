@@ -369,7 +369,7 @@ public class ReserveDao extends SuperDao {
         //クローズ
         ReserveContentsBean clBean = new ReserveContentsBean();
         clBean.setCntributflg("0");
-        clBean.setContentid("C0002");
+        clBean.setContentid("C0090");
         clBean.setDelflg("0");
         clBean.setCreateymd(ymd);
         clBean.setOwnerid(ownerid);

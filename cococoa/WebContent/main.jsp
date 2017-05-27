@@ -104,8 +104,8 @@
         </td>
     </tr>
     <tr>
-        <td valign="top"><iframe class="c2" name="msg" src="msg.html"></iframe></td>
-        <td valign="top"><iframe class="c4" name="content" src="contents.html"></iframe></td>
+        <td valign="top"><iframe class="c2" name="msg" src="msg.jsp"></iframe></td>
+        <td valign="top"><iframe class="c4" name="content" src="Content?o=<%=ownerid%>&b=<%=boothid%>&a=<%=broadcastid%>&key=find""></iframe></td>
     </tr>
     <tr>
         <td>

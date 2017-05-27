@@ -30,7 +30,7 @@ public class MessageDao extends SuperDao {
             sql.append("    N1_MSG.POINT,");
             sql.append("    N1_MSG.READFLG,");
             sql.append("    N1_MSG.DELFLG,");
-            sql.append("    N1_MSG.CREATEYMD,");
+            sql.append("    to_char(to_date(N1_MSG.CREATEYMD, 'YYYYMMDDHH24MMSSMS'), 'yyyy/mm/dd HH24:MM:SS') As CREATEYMD,");
             sql.append("    N1_MSG.UPDATEYMD ");
             sql.append("FROM ");
             sql.append("    N1_MSG ");

@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,22 +28,22 @@
 <body>
 <P> </P>
 <form name="messageform">
-<table border="1">
+<table border="0">
 <tr>
     <td style="hight:100px" colspan="2">
-
+       <span id="ctitile"></span>
     </td>
 </tr>
 <tr>
-    <td style="width:200px;">リスナー:<p id="name"></p></td>
-    <td colspan="2">投稿日時:<p id="posttime"></p></td>
+    <td style="width:200px;"><span id="postname"></span></td>
+    <td colspan="2"><span id="posttime"></span></td>
 </tr>
 <tr>
 <td colspan="2" rowspan="5" valign="top">
     <textarea name="msg" cols="30" rows="10" class="example">
     </textarea>
 </td>
-<td>結果</td>
+<td>評価</td>
 </tr>
 <tr><td><input type="button" value="☆☆☆"></td></tr>
 <tr><td><input type="button" value="☆☆"></td></tr>

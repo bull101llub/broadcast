@@ -55,11 +55,20 @@ table.table-header-fixed thead th {
 <script>
     // 行選択時のsubmit
     function selrow(row, bane, creatymd, msg) {
-      //alert(row.id);
+
+
+      var option = document.form01.contents.options;
+      var Idx = document.form01.contents.selectedIndex;
+      var value = option[ Idx ];
+      var title = value.innerHTML;
       var target = document.getElementById("form01");
-alert(parent.msg.document.messageform.msg.value);
-alert("aaa");
+
       parent.msg.document.messageform.msg.value=msg;
+      parent.msg.document.getElementById('postname').innerHTML = "投稿者：" + bane;
+      parent.msg.document.getElementById('posttime').innerHTML = "投稿日時：" + creatymd;
+      parent.msg.document.getElementById('ctitile').innerHTML = title;
+
+
     }
 
     // 一覧へのポイント反映
@@ -117,11 +126,11 @@ C:<%=messageListBean.getContentid() %>
 
 <input type="hidden"  id="contentid" value="<%=messageListBean.getContentid() %>">
 <input type="button" value="検索" onclick="findRow('msg2')">
-<form id="form01">
+<form id="form01" name="form01">
 <table id="top">
     <tr>
         <td>
-            <select class="tema" name="contents" onChange="contentsChenge(this)">
+            <select class="tema" name="contents"  id="contentsList" onChange="contentsChenge(this)">
                 <option value=""></option>
                 <%
                     Iterator<String> itm = contentMap.keySet().iterator();

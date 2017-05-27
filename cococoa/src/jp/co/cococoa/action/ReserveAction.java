@@ -178,7 +178,7 @@ public class ReserveAction extends HttpServlet {
         clBean.setOwnerid(ownerid);
         clBean.setDelflg("0");
         clBean.setCreateymd(createymd);
-        if (Arrays.asList(values).contains("C0002")) {
+        if (Arrays.asList(values).contains("C0090")) {
         	clBean.setCntributflg("1");
         } else {
         	clBean.setCntributflg("0");
