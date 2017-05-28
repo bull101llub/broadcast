@@ -19,7 +19,7 @@ public class BoothBusiness extends SuperBusiness {
         try {
             beanList.setBoothList(dao.getBoothList(getConnection(), ownerid));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();
@@ -41,7 +41,7 @@ public class BoothBusiness extends SuperBusiness {
         try {
             bean = dao.createBooth(getConnection(), boothname, ownerid, description);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();
@@ -63,7 +63,7 @@ public class BoothBusiness extends SuperBusiness {
         try {
             bean = dao.updateBooth(getConnection(), boothid, boothname, description);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();
@@ -85,7 +85,7 @@ public class BoothBusiness extends SuperBusiness {
         try {
             cnt = dao.deleteBooth(getConnection(), boothid);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();

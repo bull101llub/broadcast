@@ -44,7 +44,7 @@
    border: 1px;
    margin: 0px;
    overflow: hidden;
-   height: 18em;
+   height: 19em;
    width:450px;
 }
 
@@ -85,27 +85,28 @@
 </head>
 <body>
 <form id="mainForm">
-<table border="0px">
+<table border="1px">
     <tr>
-        <td valign="bottom">
-            TEST
-            <input type="button" name="startbtn" value="開始">
+        <td valign="top"  align="left" >
+            <p class="radioTitle">まいむラジオ
+            ＆nbsp;＆nbsp;＆nbsp;<input type="button" name="startbtn" value="開始">
             <input type="button" name="endbtn" value="終了">
+            </p>
         </td>
-        <td align="left" valign="top">
-            <div id="menu">
+        <td align="right" valign="top">
+            <div id="menu" align="right" >
                 <ul>
-                    <li><a href="./index.html">TOP</a></li>
+                   <!--  <li><a href="./index.html">TOP</a></li> -->
                     <li><a href="javascript:move('Reserve')">RESERVE</a></li>
-                    <li><a href="./room.html">ROM</a></li>
-                    <li><a href="./owner.html">OWNER</a></li>
+                    <li><a href="javascript:move('Booth')">BOOTH</a></li>
+                    <li><a href="javascript:move('Owner')">OWNER</a></li>
                 </ul>
             </div>
         </td>
     </tr>
     <tr>
         <td valign="top"><iframe class="c2" name="msg" src="msg.jsp"></iframe></td>
-        <td valign="top"><iframe class="c4" name="content" src="Content?o=<%=ownerid%>&b=<%=boothid%>&a=<%=broadcastid%>&key=find""></iframe></td>
+        <td valign="top"><iframe class="c4" name="content" src="Content?o=<%=ownerid%>&b=<%=boothid%>&a=<%=broadcastid%>&key=find"></iframe></td>
     </tr>
     <tr>
         <td>
@@ -116,7 +117,7 @@
     </tr>
     <tr>
         <td valign="top"><iframe class="c1" name="msglist" src="Message?o=<%=ownerid%>&b=<%=boothid%>&a=<%=broadcastid%>&key=find"></iframe></td>
-        <td valign="top"><iframe class="c3" name="rank" src="list.html"></iframe></td>
+        <td valign="top"><iframe class="c3" name="rank" src="Rank?a=<%=broadcastid%>&key=init""></iframe></td>
     </tr>
 </table>
 </form>

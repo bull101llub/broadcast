@@ -26,7 +26,6 @@ public class ReserveDao extends SuperDao {
             sql.append("    N1_BROADCAST.OWNERID,");
             sql.append("    N1_BROADCAST.BOOTHID,");
             sql.append("    N1_BROADCAST.BROADCASTID,");
-
             sql.append("    N1_CONTENTS.SORTNO,");
             sql.append("    N1_CONTENTS.CNTRIBUTFLG,");
             sql.append("    N1_CONTENTS.CONTENTID,");

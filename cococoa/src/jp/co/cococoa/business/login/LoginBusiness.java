@@ -22,7 +22,7 @@ public class LoginBusiness extends SuperBusiness {
             	loginBean.setExists(true);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();
@@ -47,7 +47,7 @@ public class LoginBusiness extends SuperBusiness {
                 bean.setExists(true);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();
@@ -70,7 +70,7 @@ public class LoginBusiness extends SuperBusiness {
             count = dao.passwordChange(getConnection(), userid, passwordOld, passwordNew);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             rollback();
         } finally {
             close();

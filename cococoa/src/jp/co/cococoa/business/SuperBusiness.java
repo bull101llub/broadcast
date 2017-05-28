@@ -23,6 +23,7 @@ public class SuperBusiness {
             InitialContext context = new InitialContext();
             DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/postgresql");
             connection = dataSource.getConnection();
+            connection.setAutoCommit(false);
 
         } catch (NamingException e) {
             throw new RuntimeException(e);
@@ -50,7 +51,9 @@ public class SuperBusiness {
 	 * */
 	public void rollback() {
         try {
-            connection.rollback();
+        	if(!connection.isClosed()) {
+                connection.rollback();
+        	}
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

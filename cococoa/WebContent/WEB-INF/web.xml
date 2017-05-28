@@ -15,10 +15,18 @@
         <filter-name>EncodeingFilter</filter-name>
         <filter-class>jp.co.cococoa.filter.EncodeingFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>jp.co.cococoa.filter.AuthFilter</filter-class>
+    </filter>
     <!-- (2)フィルタ処理を適用する条件を指定します。
             /*と指定しており、すべてのアクセスにフィルタ処理が適用されます。-->
     <filter-mapping>
         <filter-name>EncodeingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
@@ -70,6 +78,12 @@
     <servlet-name>Content</servlet-name>
     <servlet-class>jp.co.cococoa.action.ContentsAction</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>Rank</display-name>
+    <servlet-name>Rank</servlet-name>
+    <servlet-class>jp.co.cococoa.action.RankListAction</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -103,6 +117,10 @@
   <servlet-mapping>
     <servlet-name>Content</servlet-name>
     <url-pattern>/Content</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Rank</servlet-name>
+    <url-pattern>/Rank</url-pattern>
   </servlet-mapping>
 
 

@@ -23,12 +23,58 @@
     textarea.example {
         line-height: 150%;
     }
+    .point {
+        width:70px;
+        text-align:center;
+        font-weight: bold;
+    }
+
+
 </style>
+<script>
+    // 行選択時のsubmit
+    function putPoint(pointObj) {
+
+    	var postname =  document.getElementById('postname').innerHTML
+    	if(null == postname || "" == postname) {
+    		return false;
+    	}
+
+    	var messageid =  document.getElementById("messageid").value;
+
+        var star = pointObj.value
+        if(null == star) {
+        	return;
+        }
+        var point = 0;
+        if(null == star) {
+        	return;
+        } else if("☆" == star) {
+        	point = 1;
+        } else if("☆☆" == star) {
+        	point = 2;
+        } else if("☆☆☆" == star) {
+        	point = 3;
+        } else if("-☆" == star) {
+        	point = -1;
+        }
+        window.parent.rank.putPoint(point, messageid);
+    }
+
+    function setParam(form, paramName, value) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', paramName);
+        input.setAttribute('value', value);
+        form.appendChild(input);
+    }
+
+</script>
 </head>
 <body>
 <P> </P>
-<form name="messageform">
-<table border="0">
+<form name="messageform" id="messageform">
+<table>
 <tr>
     <td style="hight:100px" colspan="2">
        <span id="ctitile"></span>
@@ -40,18 +86,17 @@
 </tr>
 <tr>
 <td colspan="2" rowspan="5" valign="top">
-    <textarea name="msg" cols="30" rows="10" class="example">
+    <textarea name="msg" id="msg" cols="30" rows="10" class="example">
     </textarea>
 </td>
 <td>評価</td>
 </tr>
-<tr><td><input type="button" value="☆☆☆"></td></tr>
-<tr><td><input type="button" value="☆☆"></td></tr>
-<tr><td><input type="button" value="☆"></td></tr>
-<tr><td><input type="button" value="-☆"></td></tr>
+<tr><td><input type="button"  class="point" value="☆☆☆" onclick="putPoint(this)"></td></tr>
+<tr><td><input type="button"  class="point" value="☆☆"   onclick="putPoint(this)"></td></tr>
+<tr><td><input type="button"  class="point" value="☆"     onclick="putPoint(this)"></td></tr>
+<tr><td><input type="button"  class="point" value="-☆"    onclick="putPoint(this)"></td></tr>
 </table>
+<input type="hidden" id="messageid"  name="messageid" value="">
 </form>
-
-
 </body>
 </html>

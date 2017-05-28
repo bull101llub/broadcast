@@ -20,6 +20,10 @@
 
 <title>Insert title here</title>
 <style>
+.read {
+    color: darkgray;
+    font-weight:normal
+}
 
 table#main tr:hover {
  background-color: #FFFF99; /* 行の背景色 */
@@ -63,11 +67,13 @@ table.table-header-fixed thead th {
       var title = value.innerHTML;
       var target = document.getElementById("form01");
 
+      row.className = "read";
+
       parent.msg.document.messageform.msg.value=msg;
       parent.msg.document.getElementById('postname').innerHTML = "投稿者：" + bane;
       parent.msg.document.getElementById('posttime').innerHTML = "投稿日時：" + creatymd;
       parent.msg.document.getElementById('ctitile').innerHTML = title;
-
+      parent.msg.document.getElementById('messageid').value = row.id;
 
     }
 
@@ -125,7 +131,7 @@ table.table-header-fixed thead th {
 C:<%=messageListBean.getContentid() %>
 
 <input type="hidden"  id="contentid" value="<%=messageListBean.getContentid() %>">
-<input type="button" value="検索" onclick="findRow('msg2')">
+<!-- <input type="button" value="検索" onclick="findRow('msg2')"> -->
 <form id="form01" name="form01">
 <table id="top">
     <tr>
@@ -141,8 +147,8 @@ C:<%=messageListBean.getContentid() %>
                 <%} %>
 
             </select>
-            <input type="button" name="find" value="最新表示">
-            <input type="checkbox" name="riyu" value="1">既除く
+            <!-- <input type="button" name="find" value="最新表示"> -->
+            <!-- <input type="checkbox" name="riyu" value="1">既除く -->
         </td>
     </tr>
 </table>
@@ -152,10 +158,10 @@ C:<%=messageListBean.getContentid() %>
     <thead>
         <tr id="header">
             <th width="20">No</th>
-            <th width="20">point</th>
+            <th width="25">point</th>
             <th width="20"></th>
-            <th width="100">リスナー</th>
-            <th width="50">twitter id</th>
+            <th width="100">投稿者</th>
+            <th width="50">twitter</th>
             <th width="150">メッセージ</th>
             <th width="150">投稿日時</th>
         </tr>
@@ -169,9 +175,18 @@ C:<%=messageListBean.getContentid() %>
         	   i++;
         	   MessageBean bean = it.next();
     %>
-        <tr id="<%=bean.getMsgid()%>" ondblclick="selrow(this, '<%=bean.getPostname() %>', '<%=bean.getCreateymd() %>', '<%=bean.getMsg()%>')">
+        <tr id="<%=bean.getMsgid()%>"
+
+             <% if(1 == bean.getReadflg()) {  %>
+                class="read"
+             <% } %>
+
+             ondblclick="selrow(this, '<%=bean.getPostname() %>', '<%=bean.getCreateymd() %>', '<%=bean.getMsg()%>')">
+
+
+
             <td width="20"><%=i %></td>
-            <td width="20"><%=bean.getPoint()%></td>
+            <td width="25"><%=bean.getPoint()%></td>
             <td width="20"></td>
             <td width="100"><%=bean.getPostname() %></td>
             <td width="50"></td>
@@ -183,7 +198,7 @@ C:<%=messageListBean.getContentid() %>
     <% if (null == list || list.size() == 0) { %>
         <tr id="msg1" ondblclick="selrow(this)">
             <td width="20"></td>
-            <td width="20"></td>
+            <td width="25"></td>
             <td width="20"></td>
             <td width="100"></td>
             <td width="50"></td>

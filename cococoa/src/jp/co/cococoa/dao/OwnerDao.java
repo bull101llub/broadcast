@@ -85,7 +85,7 @@ public class OwnerDao extends SuperDao {
                           sql.append("?, ");
                           sql.append("?, ");
                           sql.append("0, ");
-                          sql.append("now() ");
+                          sql.append("to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
                           sql.append(") ");
 
             String[] paramArray = {userid, ownerid, oname, description};
@@ -125,7 +125,7 @@ public class OwnerDao extends SuperDao {
                           sql.append("SET ");
                           sql.append("    N1_OWNER.OWNERNAME = ?, ");
                           sql.append("    N1_OWNER.DESCRIPTION = ?, ");
-                          sql.append("    N1_OWNER.UPDATEYMD = now() ");
+                          sql.append("    N1_OWNER.UPDATEYMD = to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
                           sql.append("WHERE ");
                           sql.append("    N1_OWNER.USERID = ? AND ");
                           sql.append("    N1_OWNER.OWNERID = ? AND ");
@@ -162,7 +162,8 @@ public class OwnerDao extends SuperDao {
                           sql.append("UPDATE ");
                           sql.append("    N1_OWNER ");
                           sql.append("SET ");
-                          sql.append("    N1_OWNER.DELFLG = 1 ");
+                          sql.append("    N1_OWNER.DELFLG = 1, ");
+                          sql.append("    N1_OWNER.UPDATEYMD = to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
                           sql.append("WHERE ");
                           sql.append("    N1_OWNER.USERID = ? AND ");
                           sql.append("    N1_OWNER.OWNERID = ? AND ");

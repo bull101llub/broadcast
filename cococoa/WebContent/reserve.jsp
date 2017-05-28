@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <jsp:useBean id="reserveBean" class="jp.co.cococoa.business.reserve.ReserveBean" scope="session" />
+<jsp:useBean id="loginBean" class="jp.co.cococoa.common.bean.AuthInfoBean" scope="session" />
 <%@ page import="jp.co.cococoa.business.reserve.ReserveContentsBean" %>
 <%@ page import="jp.co.cococoa.util.StringUtil" %>
 
@@ -47,6 +48,7 @@ table.table-header-fixed thead th {
 }
 </style>
 <script>
+
     // 保存時のsubmit
     function update() {
         var form = document.getElementById("reserveform");
@@ -96,13 +98,13 @@ table.table-header-fixed thead th {
 <body>
 <table width="630" border="0px">
     <tr>
-        <td width="170"></>
+        <td width="220"></>
         <td align="right" valign="top">
             <div id="menu"  valign="top"  align="right">
                 <ul>
                     <li><a href="javascript:move('Main')">TOP</a></li>
                     <!-- <li><a href="./reserve.html">RESERVE</a></li>  -->
-                    <li><a href="./room.html">ROM</a></li>
+                    <li><a href="./room.html">BOOTH</a></li>
                     <li><a href="./owner.html">OWNER</a></li>
                 </ul>
             </div>
@@ -114,14 +116,14 @@ Contents Setting
 <form id="reserveform">
 <input type="hidden" id="k1" name="reserveno" value="test001">
 <table width="615" border="0px">
-<tr>
-<td width="320"></td>
-<td width="50" valign="bottom">予約中</td>
-<td width="130" valign="bottom">(2017/05/03 17:23)</td>
-<td width="70" valign="bottom"><input type="checkbox" name="riyu" value="1">連携</td>
-<td><input type="button" value="予約実行" onClick="reserve()"></td>
-<td><input type="button" value="予約取消" onClick="cancel()"></td>
-</tr>
+    <tr>
+        <td width="320"></td>
+        <td width="50" valign="bottom">予約中</td>
+        <td width="130" valign="bottom"></td>
+        <td width="70" valign="bottom"><input type="checkbox" name="riyu" value="1">Twitter連携</td>
+        <td><input type="button" value="予約実行" onClick="reserve()"></td>
+        <td><input type="button" value="予約取消" onClick="cancel()"></td>
+    </tr>
 </table>
 
 <table id="main" class="table-header-fixed">
@@ -234,10 +236,24 @@ Contents Setting
 </table>
 <table width="615" border="0px">
     <tr>
-        <td width="680"></td>
+        <td width="680" style="vertical-align:bottom;">◆投稿用ページURL</td>
         <td><input type="button" value="保存" onClick="update()"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <textarea id="posturl"  name="posturl" cols="87" rows="5"></textarea>
+        </td>
     </tr>
 </table>
 </form>
 </body>
+<script>
+var url = window.location.href
+var before = "Reserve" ;
+var domain = url.replace( /Reserve/g , "" ) ;
+var postUrl = domain + "PostMessage?o=<%=loginBean.getOwnerid()%>&b=<%=loginBean.getBoothid()%>&a=<%=loginBean.getBroadcastid()%>&key=init"
+var obj = document.getElementById("posturl");
+document.getElementById("posturl").value = postUrl;
+
+</script>
 </html>

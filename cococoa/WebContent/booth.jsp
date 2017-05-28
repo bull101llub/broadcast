@@ -93,19 +93,20 @@ table.table-header-fixed thead th {
         form.appendChild(input);
     }
 
+
 </script>
 </head>
 <body>
-<table width="675" border="0px">
+<table width="870" border="0px">
     <tr>
-        <td width="215"></>
+        <td width="525px"></>
         <td align="right" valign="top">
             <div id="menu"  valign="top"  align="right">
                 <ul>
-                    <li><a href="./index.html">TOP</a></li>
-                    <li><a href="./reserve.html">RESERVE</a></li>
-                    <li><a href="./room.html">ROM</a></li>
-                    <li><a href="./owner.html">OWNER</a></li>
+                    <!-- <li><a href="./index.html">TOP</a></li> -->
+                    <!-- <li><a href="./reserve.html">RESERVE</a></li> -->
+                    <!-- <li><a href="./room.html">BOOTH</a></li> -->
+                    <!-- <li><a href="./owner.html">OWNER</a></li> -->
                 </ul>
             </div>
         </td>
@@ -126,38 +127,35 @@ if(null != list && list.size()>0) {
 
 %>
 <form id=boothform>
-    ああああ：aa<%=list.size()%>
+    ブース選択：
     <select class="tema" name="tema" style="width:200px;">
         <option value="rn001">選択肢1</option>
-        <option value="rn002">選択肢2</option>
-        <option value="rn003">選択肢3</option>
     </select>
     <input type="button" name="find" value="移動" onclick="move()">
 <br>
 <br>
 <br>
-room
-    <table id="main"  width="655" border="1" class="table-header-fixed">
+    <table id="main"  width="７55" border="1" class="table-header-fixed">
         <thead>
             <tr>
-                <th width="50">id</th>
-                <th width="150">name</th>
-                <th width="435">comment</th>
+                <th width="50">ID</th>
+                <th width="250">ブース名</th>
+                <th width="435">コメント</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td width="50"><input name="roomid"  id="k1"  type="text" style="width:45px;" value="<%=bean.getBoothid() %>"></td>
-                <td width="150"><input name="roomname"  type="text" style="width:145px;" value="<%=bean.getBootname() %>"></td>
+                <td width="250"><input maxlength="150"  name="roomname"  type="text" style="width:245px;" value="<%=bean.getBootname() %>"></td>
                 <td width="435" valign="top"">
                     <textarea name="roommessage" cols="50" rows="4" class="example"><%=bean.getDescription() %></textarea>
                 </td>
             </tr>
         </tbody>
     </table>
-    <table width="655" border="0px">
+    <table width="７55" border="0px">
         <tr>
-            <td width="570"></td>
+            <td width="657"></td>
             <td><input type="button" value="削除" onClick="del()"></td>
             <td><input type="button" value="更新" onClick="send()"></td>
         </tr>

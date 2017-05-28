@@ -89,7 +89,7 @@ public class BoothDao extends SuperDao {
                           sql.append("    ?, ");
                           sql.append("    ?, ");
                           sql.append("    0, ");
-                          sql.append("    now()) ");
+                          sql.append("    to_char(current_timestamp,'YYYYMMDDHH24MMSSMS')) ");
 
             String[] paramArray = {boothid, boothname, ownerid, description};
             count = executeUpdate(connection, sql.toString(), paramArray);
@@ -123,7 +123,7 @@ public class BoothDao extends SuperDao {
                           sql.append("UPDATE N1_BOOTH SET ");
                           sql.append("    BOOTHNM = ?, ");
                           sql.append("    DESCRIPTION = ?, ");
-                          sql.append("    UPDATEYMD = now() ");
+                          sql.append("    UPDATEYMD = to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
                           sql.append("WHERE ");
                           sql.append("    BOOTHID = ? AND ");
                           sql.append("    DELFLG = 0 ");
@@ -154,7 +154,8 @@ public class BoothDao extends SuperDao {
         try {
             StringBuilder sql = new StringBuilder();
                           sql.append("UPDATE N1_BOOTH SET ");
-                          sql.append("    DELFLG = 1 ");
+                          sql.append("    DELFLG = 1, ");
+                          sql.append("    UPDATEYMD = to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
                           sql.append("WHERE ");
                           sql.append("    BOOTHID = ? AND ");
                           sql.append("    DELFLG = 0 ");

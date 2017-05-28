@@ -10,7 +10,9 @@ public class ReserveBean {
 	private String ownerid;
 	/** ルームID */
 	private String boothid;
-    /** コンテンツリスト */
+	/** ルーム名 */
+	private String bootnam;
+	/** コンテンツリスト */
 	private List<ReserveContentsBean> contentsList;
 
 	public String getBroadcastid() {
@@ -30,6 +32,15 @@ public class ReserveBean {
 	}
 	public void setBoothid(String boothid) {
 		this.boothid = boothid;
+	}
+    public String getBootnam() {
+		return bootnam;
+	}
+	public void setBootnam(String bootnam) {
+		this.bootnam = bootnam;
+	}
+	public void setBroadcastid(String broadcastid) {
+		this.broadcastid = broadcastid;
 	}
 	public List<ReserveContentsBean> getContentsList() {
 		return contentsList;

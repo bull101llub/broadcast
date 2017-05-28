@@ -92,7 +92,7 @@ public class MessageDao extends SuperDao {
             sql.append("    N1_MSG.POINT,");
             sql.append("    N1_MSG.READFLG,");
             sql.append("    N1_MSG.DELFLG,");
-            sql.append("    N1_MSG.CREATEYMD,");
+            sql.append("    to_char(to_date(N1_MSG.CREATEYMD, 'YYYYMMDDHH24MMSSMS'), 'yyyy/mm/dd HH24:MM:SS') As CREATEYMD,");
             sql.append("    N1_MSG.UPDATEYMD");
             sql.append(" FROM ");
             sql.append("    N1_MSG ");
@@ -184,9 +184,38 @@ public class MessageDao extends SuperDao {
                 		bean.getPostid(),
                 		bean.getPostname(),
                 		bean.getMsg()};
-                patramList.add(paramArray);
+
+                if(null != bean.getMsg() && bean.getMsg().length() > 0) {
+                   patramList.add(paramArray);
+                }
             }
             count = executeBatch(connection, sql.toString(), patramList);
+        } catch (SQLException e) {
+            throw e;
+        }
+        return count;
+    }
+
+    public int putPoint(Connection connection, String ownerid, String boothid, String broadcastid, String msgid, String point) throws SQLException {
+        int count = 0;
+        try {
+            // SQL
+            StringBuilder sql = new StringBuilder();
+            sql.append("UPDATE ");
+            sql.append("    n1_msg ");
+            sql.append("SET  ");
+            sql.append("    point=?,  ");
+            sql.append("    readflg=1,  ");
+            sql.append("    updateymd=to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
+            sql.append("WHERE ");
+            sql.append("    ownerid=? AND ");
+            sql.append("    boothid=? AND ");
+            sql.append("    broadcastid=? AND ");
+            sql.append("    delflg=0 AND  ");
+            sql.append("    msgid=? ");
+
+            String[] paramArray = {point, ownerid, boothid, broadcastid, msgid};
+            count = executeUpdate(connection, sql.toString(), paramArray);
         } catch (SQLException e) {
             throw e;
         }

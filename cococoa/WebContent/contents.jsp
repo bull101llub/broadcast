@@ -41,7 +41,7 @@ a:nth-child(6) { border-top: 6px solid red; }
 
 .content {
   border: 1px solid lightgray;
-  height: 120px;
+  height: 150px;
   display: none;
   padding: 5px;
 }

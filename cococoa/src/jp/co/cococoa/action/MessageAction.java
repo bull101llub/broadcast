@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import jp.co.cococoa.business.msg.MessageBean;
 import jp.co.cococoa.business.msg.MessageBusiness;
 import jp.co.cococoa.business.msg.MessageListBean;
+import jp.co.cococoa.common.bean.AuthInfoBean;
 import jp.co.cococoa.util.DateUtil;
 
 /**
@@ -37,11 +38,25 @@ public class MessageAction extends HttpServlet {
 		//String nextPage = "";
         MessageListBean bean = new MessageListBean();
         HttpSession session = request.getSession();
+        AuthInfoBean loginBean = (AuthInfoBean) session.getAttribute("login");
 
 		String ownerid      = request.getParameter("o");
 		String boothid      = request.getParameter("b");
 		String broadcastid  = request.getParameter("a");
 		String contentsid  = request.getParameter("c");
+
+		String messageid = request.getParameter("messageid");
+		String point = request.getParameter("point");
+
+		if(null == ownerid || "".equals(ownerid)) {
+			ownerid = loginBean.getOwnerid();
+		}
+		if(null == boothid || "".equals(boothid)) {
+			boothid = loginBean.getBoothid();
+		}
+		if(null == broadcastid || "".equals(broadcastid)) {
+			broadcastid = loginBean.getBroadcastid();
+		}
 
 		System.out.println("------------------------");
 		System.out.println("ownerid:" + ownerid);
@@ -57,6 +72,10 @@ public class MessageAction extends HttpServlet {
         if ("create".equals(key)) {
         	bean = makeParam(request, ownerid, boothid, broadcastid);
         	business.getRegist(bean);
+            nextPage = "/PostMessage?o=" + ownerid + "&b=" + boothid + "&a=" + broadcastid + "&key=init";
+        } else if ("point".equals(key)) {
+        	business.putPoint(ownerid, boothid, broadcastid, messageid, point);
+        	nextPage = "Rank?a=" + broadcastid + "&key=init";
         } else if ("find".equals(key)) {
         	if(null == contentsid || "".equals(contentsid)) {
         		contentsid = "C0001";

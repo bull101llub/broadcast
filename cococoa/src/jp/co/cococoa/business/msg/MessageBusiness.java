@@ -81,4 +81,30 @@ public class MessageBusiness extends SuperBusiness {
         }
         return count;
     }
+
+    /**
+     *  ポイント更新
+     *  @param ownerid
+     *  @param boothid
+     *  @param broadcastid
+     *  @param msgid
+     *  @param point
+     *  @return 更新件数
+     * */
+    public int putPoint(String ownerid, String boothid, String broadcastid, String msgid, String point){
+
+        MessageDao dao = new MessageDao();
+        int count = 0;
+
+        try {
+            //ブースNoに紐付く最新の予約情報を取得
+            count = dao.putPoint(getConnection(), ownerid, boothid, broadcastid, msgid, point);
+        } catch (Exception e) {
+            e.printStackTrace();
+            rollback();
+        } finally {
+            close();
+        }
+        return count;
+    }
 }

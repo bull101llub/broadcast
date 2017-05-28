@@ -10,17 +10,10 @@ import jp.co.cococoa.business.login.UserBean;
 
 public class LoginDao extends SuperDao {
 
-    /*  ���[�U�[���擾
-     *  @param userid   ���[�U�[ID
-     *  @param password �p�X���[�h
-     *  @return ���[�U�[���
-     * */
     public UserBean getUser(Connection connection, String userid, String password) throws SQLException {
         UserBean bean = new UserBean();
 
         try {
-
-            // �ŐV�̗\�񃌃R�[�h���擾����
             StringBuilder sql = new StringBuilder();
                           sql.append(" SELECT ");
                           sql.append("     N1_USER.USERID, ");
@@ -51,12 +44,6 @@ public class LoginDao extends SuperDao {
         return bean;
     }
 
-    /**
-     *  ���[�U�[���o�^
-     *  @param userid   ���[�U�[ID
-     *  @param password �p�X���[�h
-     *  @return �o�^����
-     * */
     public UserBean createUser(Connection connection,  String userid, String password) throws SQLException {
         UserBean bean = new UserBean();
 
@@ -92,7 +79,7 @@ public class LoginDao extends SuperDao {
             StringBuilder sql = new StringBuilder();
                           sql.append(" UPDATE N1_USER SET ");
                           sql.append("     PASSWORD = ?, ");
-                          sql.append("     UPDATEYMD = Format(now(),yyyymmddHHmmss) ");
+                          sql.append("     UPDATEYMD = to_char(current_timestamp,'YYYYMMDDHH24MMSSMS') ");
                           sql.append(" WHERE ");
                           sql.append("     N1_USER.USERID = ? AND ");
                           sql.append("     N1_USER.PASSWORD = ? ");
