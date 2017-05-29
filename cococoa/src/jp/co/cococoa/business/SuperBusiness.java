@@ -51,7 +51,7 @@ public class SuperBusiness {
 	 * */
 	public void rollback() {
         try {
-        	if(!connection.isClosed()) {
+        	if (null != connection && !connection.isClosed()) {
                 connection.rollback();
         	}
         } catch (SQLException e) {
@@ -66,7 +66,7 @@ public class SuperBusiness {
 	 * */
 	public void close() {
         try {
-        	if (!connection.isClosed()) {
+        	if (null != connection && !connection.isClosed()) {
                 connection.close();
         	}
         } catch (SQLException e) {

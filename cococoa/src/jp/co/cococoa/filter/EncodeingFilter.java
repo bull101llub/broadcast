@@ -16,7 +16,8 @@ import javax.servlet.ServletResponse;
 public class EncodeingFilter implements Filter {
 
     /** エンコード */
-    private final static String encoding = "UTF-8";
+    //private final static String encoding = "UTF-8";
+	private final static String encoding = "Shift_JIS";
 
     /**
      * Default constructor.
