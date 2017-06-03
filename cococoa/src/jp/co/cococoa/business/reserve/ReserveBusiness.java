@@ -42,6 +42,7 @@ public class ReserveBusiness extends SuperBusiness {
             //ルームNoに紐付く最新の予約情報を取得
             dao.updatetContents(getConnection(), reserveBean);
             bean = dao.getReserve(getConnection(), reserveBean.getBoothid(), reserveBean.getOwnerid());
+            commit();
         } catch (Exception e) {
         	e.printStackTrace();
             rollback();
@@ -64,6 +65,7 @@ public class ReserveBusiness extends SuperBusiness {
 
         try {
           int i = dao.reserve(getConnection(), ownerid, boothid);
+          commit();
         } catch (Exception e) {
         	e.printStackTrace();
             rollback();
@@ -86,6 +88,7 @@ public class ReserveBusiness extends SuperBusiness {
 
         try {
           int i = dao.cancel(getConnection(), ownerid, boothid);
+          commit();
         } catch (Exception e) {
         	e.printStackTrace();
             rollback();

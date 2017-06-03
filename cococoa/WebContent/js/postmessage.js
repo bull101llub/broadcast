@@ -65,7 +65,7 @@
         val=str.replace(/\s|　/gm,'').length;//空白文字を除いた文字数
 
         //文字数表示
-        document.getElementById('msg1' + contentsid).innerHTML= "<span style='color:blue ;'>"+val+"</span>.";
+        document.getElementById('msg1' + contentsid).innerHTML= "<span style='color:blue ;'>"+val+"</span>";
 
         //制限文字数を超えた時 max()を実行
         obj.setAttribute("isover", "false");
