@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import jp.co.cococoa.business.msg.MessageBean;
 import jp.co.cococoa.business.msg.MessageBusiness;
 import jp.co.cococoa.business.msg.MessageListBean;
@@ -101,10 +103,10 @@ public class MessageAction extends HttpServlet {
 		listBean.setBoothid(boothid);
 		listBean.setBroadcastid(broadcastid);
 
-		String cfree   = request.getParameter("C0010");
-		String cThema  = request.getParameter("C0011");
-		String c1      = request.getParameter("C0012");
-		String c2      = request.getParameter("C0013");
+		String cfree   = StringEscapeUtils.escapeHtml4(request.getParameter("C0010"));
+		String cThema  = StringEscapeUtils.escapeHtml4(request.getParameter("C0011"));
+		String c1      = StringEscapeUtils.escapeHtml4(request.getParameter("C0012"));
+		String c2      = StringEscapeUtils.escapeHtml4(request.getParameter("C0013"));
 
 		System.out.println(postname);
 		System.out.println(cfree);

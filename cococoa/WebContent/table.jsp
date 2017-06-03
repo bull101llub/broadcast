@@ -6,6 +6,7 @@
 <jsp:useBean id="messageListBean" class="jp.co.cococoa.business.msg.MessageListBean" scope="session" />
 
 <%@ page import="jp.co.cococoa.util.StringUtil" %>
+
 <!DOCTYPE html>
 <html>
 <head>
