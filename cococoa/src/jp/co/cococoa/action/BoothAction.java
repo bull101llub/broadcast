@@ -59,13 +59,16 @@ public class BoothAction extends HttpServlet {
 
         	if (null != beanList && null != beanList.getBoothList() && beanList.getBoothList().size() > 0) {
         		String boothid = beanList.getBoothList().get(0).getBoothid();
+        		String boothname = beanList.getBoothList().get(0).getBootname();
             	loginBean.setBoothid(boothid);
+            	loginBean.setBoothname(boothname);
         	}
             session.setAttribute("boothListBean", beanList);
         } else if("create".equals(key)) {
             bean = business.create("", name, comment);
         } else if("save".equals(key)) {
             business.update(id, name, comment);
+        	beanList = business.find(loginBean.getOwnerid());
         }
 
         session.setAttribute("boothListBean", beanList);

@@ -73,6 +73,7 @@ public class MessageBusiness extends SuperBusiness {
         try {
             //ブースNoに紐付く最新の予約情報を取得
             count = dao.create(getConnection(), meeageListBean);
+            commit();
         } catch (Exception e) {
             e.printStackTrace();
             rollback();
@@ -99,6 +100,7 @@ public class MessageBusiness extends SuperBusiness {
         try {
             //ブースNoに紐付く最新の予約情報を取得
             count = dao.putPoint(getConnection(), ownerid, boothid, broadcastid, msgid, point);
+            commit();
         } catch (Exception e) {
             e.printStackTrace();
             rollback();

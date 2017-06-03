@@ -56,7 +56,7 @@ table.table-header-fixed thead th {
 
         var roomId = document.getElementById("k1").value;
 
-        //オーナーIDが未設定の場合は初期登録へ
+        //ブースIDが未設定の場合は初期登録へ
         if(typeof roomId === "undefined" || roomId == "") {
             setParam(target, "key", "create")
         } else {
@@ -135,7 +135,7 @@ if(null != list && list.size()>0) {
 <br>
 <br>
 <br>
-    <table id="main"  width="７55" border="1" class="table-header-fixed">
+    <table id="main"  width="755" border="1" class="table-header-fixed">
         <thead>
             <tr>
                 <th width="50">ID</th>
@@ -145,7 +145,7 @@ if(null != list && list.size()>0) {
         </thead>
         <tbody>
             <tr>
-                <td width="50"><input name="roomid"  id="k1"  type="text" style="width:45px;" value="<%=bean.getBoothid() %>"></td>
+                <td width="50"><input maxlength="150"  name="roomid" id="k1" type="text" style="width:245px;" value="<%=bean.getBoothid() %>"></td>
                 <td width="250"><input maxlength="150"  name="roomname"  type="text" style="width:245px;" value="<%=bean.getBootname() %>"></td>
                 <td width="435" valign="top"">
                     <textarea name="roommessage" cols="50" rows="4" class="example"><%=bean.getDescription() %></textarea>
@@ -156,7 +156,7 @@ if(null != list && list.size()>0) {
     <table width="７55" border="0px">
         <tr>
             <td width="657"></td>
-            <td><input type="button" value="削除" onClick="del()"></td>
+            <td><input type="button" value="削除" onClick="del()" disabled></td>
             <td><input type="button" value="更新" onClick="send()"></td>
         </tr>
     </table>

@@ -20,10 +20,12 @@ public class SuperBusiness {
 	 * */
 	public Connection getConnection() {
         try {
-            InitialContext context = new InitialContext();
-            DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/postgresql");
-            connection = dataSource.getConnection();
-            connection.setAutoCommit(false);
+        	if((null == connection) || (null != connection && connection.isClosed())) {
+                InitialContext context = new InitialContext();
+                DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/postgresql");
+                connection = dataSource.getConnection();
+                connection.setAutoCommit(false);
+        	}
 
         } catch (NamingException e) {
             throw new RuntimeException(e);

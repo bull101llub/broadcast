@@ -11,17 +11,12 @@ import jp.co.cococoa.business.booth.BoothBean;
 
 public class BoothDao extends SuperDao {
 
-    /*  �u�[�X���ꗗ�擾
-     *  @param ownerid   �I�[�i�[ID
-     *  @return �u�[�X���ꗗ
-     * */
     public List<BoothBean> getBoothList(Connection connection,
                                              String ownerid) throws SQLException {
 
         List<BoothBean> beanList = new ArrayList<BoothBean>();
         try {
 
-            // �I�[�i�[�ɕR�t���u�[�X���擾����
             StringBuilder sql = new StringBuilder();
                           sql.append("SELECT ");
                           sql.append("    N1_BOOTH.BOOTHID, ");
@@ -39,7 +34,6 @@ public class BoothDao extends SuperDao {
             String[] paramArray = {ownerid};
             List<Map<String, String>> resultList = select(connection, sql.toString(), paramArray);
 
-            //�Y�����[�U�[�����݂��Ȃ��ꍇ
             if(null == resultList || resultList.size() == 0) {
                return beanList;
             }

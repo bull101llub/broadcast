@@ -75,21 +75,24 @@
     String ownerid = loginBean.getOwnerid();
     String boothid = loginBean.getBoothid();
     String broadcastid = loginBean.getBroadcastid();
-
+    String boothname = loginBean.getBoothname();
     System.out.println("ownerid" + ownerid);
     System.out.println("boothid" + boothid);
     System.out.println("broadcastid" + broadcastid);
+    System.out.println("boothname" + boothname);
+
+
 
 %>
 
 </head>
 <body>
 <form id="mainForm">
-<table border="1px">
+<table border="0px">
     <tr>
         <td valign="top"  align="left" >
-            <p class="radioTitle">まいむラジオ
-            ＆nbsp;＆nbsp;＆nbsp;<input type="button" name="startbtn" value="開始">
+            <p class="radioTitle"><%=boothname %>
+            <input type="button" name="startbtn" value="開始">
             <input type="button" name="endbtn" value="終了">
             </p>
         </td>

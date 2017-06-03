@@ -129,17 +129,17 @@ Contents Setting
 <table id="main" class="table-header-fixed">
     <thead>
         <tr>
-            <th width="20">col</th>
-            <th width="10">no</th>
-            <th width="30">kbn</th>
-            <th width="150">title</th>
-            <th width="150">text</th>
-            <th width="273">script</th>
+            <th width="25">投稿<br>受付</th>
+            <th width="10">No</th>
+            <th width="30">区分</th>
+            <th width="150">コーナータイトル</th>
+            <th width="150">コーナー説明<br>今回のお題</th>
+            <th width="273">台本</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td width="20"><input type="checkbox" name="collecting" value="<%=reserveBean.getContentsList().get(0).getContentid() %>" disabled></td>
+            <td width="25"><input type="checkbox" name="collecting" value="<%=reserveBean.getContentsList().get(0).getContentid() %>" disabled></td>
             <td width="10">1</td>
             <td width="30"><input type="hidden" name="idOp" value="<%=reserveBean.getContentsList().get(0).getContentid()%>">オープニング</td>
             <td width="150" valign="top">
@@ -153,7 +153,7 @@ Contents Setting
             </td>
         </tr>
         <tr>
-            <td width="20">
+            <td width="25">
                 <input type="checkbox" name="collecting"  value="<%=reserveBean.getContentsList().get(1).getContentid()%>" <% if(reserveBean.getContentsList().get(1).getCntributflg().equals("1")){%> checked <% }%>>
             </td>
             <td width="10">2</td>
@@ -169,7 +169,7 @@ Contents Setting
             </td>
         </tr>
         <tr>
-            <td width="20">
+            <td width="25">
                 <input type="checkbox" name="collecting"  value="<%=reserveBean.getContentsList().get(2).getContentid()%>" <% if(reserveBean.getContentsList().get(2).getCntributflg().equals("1")){%> checked <% }%>>
             </td>
             <td width="10">3</td>
@@ -185,7 +185,7 @@ Contents Setting
             </td>
         </tr>
         <tr>
-            <td width="20">
+            <td width="25">
                 <input type="checkbox" name="collecting"  value="<%=reserveBean.getContentsList().get(3).getContentid()%>" <% if(reserveBean.getContentsList().get(3).getCntributflg().equals("1")){%> checked <% }%>>
             </td>
             <td width="10">4</td>
@@ -201,7 +201,7 @@ Contents Setting
             </td>
         </tr>
         <tr>
-            <td width="20">
+            <td width="25">
                 <input type="checkbox" name="collecting"  value="<%=reserveBean.getContentsList().get(4).getContentid()%>" <% if(reserveBean.getContentsList().get(4).getCntributflg().equals("1")){%> checked <% }%>>
             </td>
             <td width="10">5</td>
@@ -217,7 +217,7 @@ Contents Setting
             </td>
         </tr>
         <tr>
-            <td width="20">
+            <td width="25">
                 <input type="checkbox" name="collecting"  value="<%=reserveBean.getContentsList().get(5).getContentid()%>" disabled>
             </td>
             <td width="10">6</td>

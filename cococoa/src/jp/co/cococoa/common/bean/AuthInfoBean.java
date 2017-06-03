@@ -4,7 +4,14 @@ public class AuthInfoBean {
 	private String userid;
 	private String boothid;
 	private String broadcastid;
+	private String boothname;
 
+	public String getBoothname() {
+		return boothname;
+	}
+	public void setBoothname(String boothname) {
+		this.boothname = boothname;
+	}
 	public String getBroadcastid() {
 		return broadcastid;
 	}

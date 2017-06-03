@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import jp.co.cococoa.business.login.LoginBusiness;
 import jp.co.cococoa.business.login.UserBean;
 import jp.co.cococoa.common.bean.AuthInfoBean;
@@ -19,6 +21,8 @@ import jp.co.cococoa.common.bean.Messagebean;
  */
 public class Login extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
+	Logger log= Logger.getLogger(Login.class.getName());
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,7 +35,12 @@ public class Login extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nextPage = "/login.jsp";
+
+    	log.info(Login.class.getName() + " -- in");
+    	log.warn(Login.class.getName() + " -- in");
+    	log.error(Login.class.getName() + " -- in");
+
+    	String nextPage = "/login.jsp";
         UserBean bean= new UserBean();
         Messagebean msgBean = new Messagebean();
         AuthInfoBean loginBean = new AuthInfoBean();

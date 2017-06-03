@@ -62,6 +62,7 @@ public class BoothBusiness extends SuperBusiness {
 
         try {
             bean = dao.updateBooth(getConnection(), boothid, boothname, description);
+            commit();
         } catch (Exception e) {
             e.printStackTrace();
             rollback();
@@ -84,6 +85,7 @@ public class BoothBusiness extends SuperBusiness {
         int cnt = 0;
         try {
             cnt = dao.deleteBooth(getConnection(), boothid);
+            commit();
         } catch (Exception e) {
             e.printStackTrace();
             rollback();

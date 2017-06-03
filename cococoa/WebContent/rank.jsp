@@ -101,8 +101,8 @@ table.table-header-fixed thead th {
             <td width="20">□</td>
             <td width="100"><%=bean.getPostname() %></td>
             <td width="50"><%=bean.getPostid() %></td>
-            <td width="50"><%=bean.getPoint() %></td>
-            <td width="50"><%=bean.getTotalpost() %></td>
+            <td style="text-align: right;" width="50"><%=bean.getPoint() %></td>
+            <td style="text-align: right;" width="50"><%=bean.getTotalpost() %></td>
             <td width="50">
             </td>
         </tr>
